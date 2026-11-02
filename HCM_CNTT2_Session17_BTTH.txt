@@ -1,0 +1,47 @@
+1. Phân tích luồng xử lý HTTP & Công cụ DevTools
+Luồng HTTP Request (4 bước): Phân giải DNS 
+→ Bắt tay kết nối (TCP/TLS) 
+→ Server xử lý Yêu cầu 
+→ Trình duyệt nhận Phản hồi & Dựng giao diện (Render).
+
+Ứng dụng các Tab DevTools:
+
+Elements: Dùng để soi, kiểm tra và chỉnh sửa thử giao diện HTML/CSS (Ví dụ: thử màu sắc nút Đăng nhập).
+
+Console: Theo dõi nhật ký lỗi (logs) của mã JavaScript.
+
+Network: Giám sát luồng trao đổi dữ liệu, kiểm tra mã trạng thái HTTP (404 Not Found do lỗi Client; 500 Internal Server Error do lỗi Server), lọc request API (Fetch/XHR), và bật cờ Disable Cache để luôn tải dữ liệu mới nhất.
+
+Application: Quản lý bộ nhớ lưu trữ tại máy (Cookies, LocalStorage, Cache). Xóa đúng session_id trong Cookies để đăng xuất mà không ảnh hưởng tới Cache tài nguyên.
+
+2. Mô hình 3 Profile & Quản trị Trình duyệt
+Rủi ro khi dùng chung Profile: Gây xung đột Cookie/Session khiến tài khoản bị ghi đè, văng đăng xuất liên tục, lộ lịch sử riêng tư khi chia sẻ màn hình và lộn xộn các tiện ích mở rộng (extensions).
+
+Mô hình 3 Profile chuẩn Dev:
+
+Personal: Phục vụ nhu cầu cá nhân, giải trí để bảo vệ sự riêng tư.
+
+Company_Work: Dùng cho công việc dự án, duy trì phiên đăng nhập và hệ thống Bookmark kỹ thuật 24/7.
+
+Sandbox/Test: Môi trường "Clean Profile" để test phân quyền người dùng và giao diện mà không bị xung đột dữ liệu.
+
+Tùy chọn Khách (Guest / Incognito): Giải pháp an toàn nhất cho người khác mượn máy tra cứu nhanh mà không làm rò rỉ dữ liệu cá nhân.
+
+3. Nguyên tắc Bảo mật, Cache & Extensions
+HttpOnly Cookie: Cờ bảo mật giúp ngăn chặn các đoạn mã JavaScript đọc Cookie (qua document.cookie), phòng chống hiệu quả tấn công tiêm mã độc XSS.
+
+Đặc quyền tối thiểu (Site Access): Giới hạn quyền hoạt động của Extension (nhóm Dev Suite như JSON Formatter) chỉ chạy trên trang cụ thể hoặc khi bấm icon, tránh nguy cơ lộ dữ liệu nhạy cảm trên các trang web khác.
+
+Xử lý Cache CSS cũ: Nhấn giữ nút Reload trên trình duyệt khi mở DevTools và chọn Empty Cache and Hard Reload để ép trình duyệt tải tệp CSS mới từ máy chủ.
+
+4. Gỡ lỗi Giao diện với CSS Box Model
+Công thức Box Model: 
+Width 
+tổng
+​
+ =Content+Padding+Border+Margin.
+
+Khắc phục lỗi đè khung giao diện: Áp dụng box-sizing: border-box để gom Padding và Border vào trong tổng chiều rộng, kết hợp với bộ bố cục display: flex và gap để tách biệt các phần tử mà không gây vỡ bố cục.
+
+5. Kiểm tra Cấu hình Phần cứng Chơi Game (Forza Horizon 4)
+Dựa trên thông số hệ thống (Intel Core i7-1355U thế hệ 13, 16GB RAM, Windows 11, DirectX 12), máy tính hoàn toàn đáp ứng tốt việc trải nghiệm game mượt mà ở mức thiết lập đồ họa Thấp đến Trung bình (Medium Settings).

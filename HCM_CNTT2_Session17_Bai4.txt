@@ -1,0 +1,35 @@
+1. Phân tích & Đánh giá Incognito Mode vs. Dedicated Profile
+Cách ly dữ liệu (Data Isolation):
+
+Incognito Mode: Chỉ cách ly tạm thời. Đóng cửa sổ là toàn bộ Cookie và Session bị xóa sạch.
+
+Dedicated Profile: Phân tách dữ liệu tuyệt đối và độc lập giữa các môi trường (Cookie, Cache, Storage không bị ghi đè lẫn nhau).
+
+Lưu giữ trạng thái (Persistence):
+
+Incognito Mode: Không hỗ trợ. Mất toàn bộ Bookmark, lịch sử truy cập và tiện ích mở rộng ngay khi tắt trình duyệt.
+
+Dedicated Profile: Lưu giữ vĩnh viễn. Giữ nguyên trạng thái đăng nhập, hệ thống Bookmark kỹ thuật và cấu hình tiện ích 24/7.
+
+Hiệu suất làm việc (Productivity):
+
+Incognito Mode: Thấp. Mất thời gian nhập lại tài khoản/MFA từ đầu mỗi lần mở và không cài được Dev Tools cố định.
+
+Dedicated Profile: Rất cao. Chuyển đổi môi trường tức thì chỉ với 1 click, tích hợp sẵn các Dev Extension phục vụ công việc.
+
+2. Mô hình 3 Profile chuẩn cho Dev & Lý do lựa chọn
+Cấu trúc 3 Profile:
+
+Profile Personal (Cá nhân): Dùng cho nhu cầu giải trí và MXH. Tránh rò rỉ thông tin riêng tư khi chia sẻ màn hình họp.
+
+Profile Work (Dự án LMS): Đăng nhập sẵn tài khoản GitHub, Jira, LMS Admin và lưu bộ Bookmark tài liệu kỹ thuật phục vụ công việc.
+
+Profile Sandbox (Test/Debug): Môi trường sạch ("Clean Profile") dùng để test phân quyền người dùng (Học viên/Giảng viên) mà không bị xung đột Cookie hay vướng tiện ích can thiệp.
+
+Lý do Dedicated Profile tối ưu hơn Incognito:
+
+Khắc phục triệt để việc mất Bookmark tài liệu kỹ thuật sau mỗi lần tắt máy.
+
+Không mất thời gian đăng nhập lại tài khoản test/thật nhiều lần trong ngày (Zero-Reauthentication).
+
+Loại bỏ hoàn toàn rủi ro nhầm lẫn dữ liệu hoặc thao tác nhầm giữa các môi trường.

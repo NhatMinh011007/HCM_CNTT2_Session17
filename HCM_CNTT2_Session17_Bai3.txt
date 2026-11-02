@@ -1,0 +1,27 @@
+1. Phân tích lỗi Box Model trên F12
+ -Sự cố: Khung "Nội dung bài học" bị đè lên "Danh sách video" do position đặt sai, margin mang dấu âm, hoặc thiếu thuộc tính box-sizing: border-box làm tổng kích thước thực tế vượt quá chiều rộng cho phép.
+ -Hình học Box Model: Width tổng = Content + Padding + Border + Margin.
+ -Cảnh báo (Bẫy dữ liệu): Nếu chỉ tăng margin để tách 2 khung mà không kiểm tra padding, tổng kích thước khối sẽ vượt quá 100%, làm vỡ bố cục và đẩy khung nội dung rớt xuống hàng dưới.
+2. Sửa nhanh trong Tab Styles (F12)
+ Thêm các thuộc tính sau vào tab Styles để xử lý tận gốc:
+ /* 1. Đưa padding và border vào trong tổng kích thước */
+.noi-dung-bai-hoc, 
+.danh-sach-video {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* 2. Cấu hình lại Layout bằng Flexbox ở khung chứa cha */
+.lms-main-wrapper {
+    display: flex;
+    gap: 20px; /* Tạo khoảng cách an toàn giữa 2 khung */
+}
+
+.noi-dung-bai-hoc {
+    flex: 1; /* Tự động chiếm phần diện tích còn lại */
+}
+
+.danh-sach-video {
+    width: 320px; /* Cố định chiều rộng khung danh sách */
+    flex-shrink: 0;
+}
